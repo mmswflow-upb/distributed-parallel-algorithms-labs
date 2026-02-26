@@ -1,0 +1,68 @@
+<div *ngIf="viewMode; else editable" class="details-view">
+  <div *ngIf="currentMovie.id; else selectPrompt">
+    <h3>{{ currentMovie.title }}</h3>
+    <div class="meta-row"><span>Director</span><strong>{{ currentMovie.director }}</strong></div>
+    <div class="meta-row"><span>Watched</span><strong>{{ currentMovie.watched ? "Yes" : "No" }}</strong></div>
+
+    <a class="btn btn-warning" routerLink="/movies/{{ currentMovie.id }}">Edit</a>
+  </div>
+
+  <ng-template #selectPrompt>
+    <p class="placeholder">Please click on a movie to view details.</p>
+  </ng-template>
+</div>
+
+<ng-template #editable>
+  <div *ngIf="currentMovie.id; else missingMovie" class="edit-form">
+    <h3>Edit Movie</h3>
+
+    <div class="form-group">
+      <label for="title">Title</label>
+      <input
+        type="text"
+        id="title"
+        [(ngModel)]="currentMovie.title"
+        name="title"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="director">Director</label>
+      <input
+        type="text"
+        id="director"
+        [(ngModel)]="currentMovie.director"
+        name="director"
+      />
+    </div>
+
+    <p class="status">Watched: <strong>{{ currentMovie.watched ? "Yes" : "No" }}</strong></p>
+
+    <div class="actions">
+      <button
+        class="btn btn-primary"
+        *ngIf="currentMovie.watched"
+        (click)="updateWatched(false)"
+      >
+        Mark Unwatched
+      </button>
+
+      <button
+        *ngIf="!currentMovie.watched"
+        class="btn btn-primary"
+        (click)="updateWatched(true)"
+      >
+        Mark Watched
+      </button>
+
+      <button class="btn btn-danger" (click)="deleteMovie()">Delete</button>
+      <button type="submit" class="btn btn-success" (click)="updateMovie()">Update</button>
+    </div>
+
+    <p class="message" *ngIf="message">{{ message }}</p>
+  </div>
+
+  <ng-template #missingMovie>
+    <p class="placeholder">Cannot access this movie.</p>
+  </ng-template>
+</ng-template>

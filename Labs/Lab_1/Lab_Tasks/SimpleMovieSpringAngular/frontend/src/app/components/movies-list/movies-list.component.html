@@ -1,0 +1,44 @@
+<section class="search-card">
+  <h2>Movies</h2>
+  <p>Search by title, then select a movie to inspect or edit.</p>
+  <div class="search-row">
+    <input
+      type="text"
+      placeholder="Search by title"
+      [(ngModel)]="title"
+    />
+    <button type="button" class="btn btn-primary" (click)="searchTitle()">Search</button>
+    <button type="button" class="btn btn-ghost" (click)="refreshList()">Reset</button>
+  </div>
+</section>
+
+<section class="panels">
+  <article class="panel">
+    <div class="panel-head">
+      <h3>Movie List</h3>
+      <button class="btn btn-danger" (click)="removeAllMovies()">Remove All</button>
+    </div>
+
+    <ul class="movie-list" *ngIf="movies && movies.length; else emptyList">
+      <li
+        *ngFor="let movie of movies; let i = index"
+        [class.active-item]="i === currentIndex"
+        (click)="setActiveMovie(movie, i)"
+      >
+        <span class="movie-title">{{ movie.title }}</span>
+        <span class="movie-director">{{ movie.director }}</span>
+      </li>
+    </ul>
+
+    <ng-template #emptyList>
+      <p class="empty">No movies found.</p>
+    </ng-template>
+  </article>
+
+  <article class="panel details-panel">
+    <app-movie-details
+      [viewMode]="true"
+      [currentMovie]="currentMovie"
+    ></app-movie-details>
+  </article>
+</section>

@@ -1,0 +1,36 @@
+<section class="add-card">
+  <h2>Add Movie</h2>
+  <p>Create a new movie entry with title and director.</p>
+
+  <div class="submit-form" *ngIf="!submitted; else successBlock">
+    <div class="form-group">
+      <label for="title">Title</label>
+      <input
+        type="text"
+        id="title"
+        required
+        [(ngModel)]="movie.title"
+        name="title"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="director">Director</label>
+      <input
+        id="director"
+        required
+        [(ngModel)]="movie.director"
+        name="director"
+      />
+    </div>
+
+    <button (click)="saveMovie()" class="btn btn-primary">Submit</button>
+  </div>
+
+  <ng-template #successBlock>
+    <div class="success-box">
+      <h4>Movie was submitted successfully.</h4>
+      <button class="btn btn-success" (click)="newMovie()">Add Another</button>
+    </div>
+  </ng-template>
+</section>

@@ -23,35 +23,27 @@ mpicc --version
 mpirun --version
 ```
 
-## 2) Build the lab and homework
+## 2) Build
 
-From the repo root:
+From this folder:
 
 ```bash
-cd DS_Lab5_Mohamad-Mario_SAKKA
-
-# Build lab
-cd LAB
-make
-
-# Build homework
-cd ../HW
 make
 ```
+
+Binaries are placed in `bin/`.
 
 ## 3) Run programs
 
 Use the `-np` flag to set the number of MPI processes (as shown in the slides).
 
-Example:
-
 ```bash
-cd LAB
-mpirun -np 2 ./bin/ex1_sum_array
+mpirun -np 3 ./bin/hw1_sum_time_third
+mpirun -np 2 ./bin/hw2_matrix_mul
 ```
 
 If you see an error about running as root, either run as a normal user or (not recommended) add:
 
 ```bash
-mpirun --allow-run-as-root -np 2 ./bin/ex1_sum_array
+mpirun --allow-run-as-root -np 3 ./bin/hw1_sum_time_third
 ```

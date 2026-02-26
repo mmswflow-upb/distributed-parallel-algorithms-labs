@@ -1,0 +1,36 @@
+services:
+  mongo:
+    image: mongo:6
+    container_name: lab-tasks-mongo
+    restart: unless-stopped
+    environment:
+      MONGO_INITDB_DATABASE: movie_db
+    ports:
+      - "27018:27017"
+    volumes:
+      - lab_tasks_mongo_data:/data/db
+
+  backend:
+    build:
+      context: ./backend
+    container_name: lab-tasks-backend
+    restart: unless-stopped
+    environment:
+      MONGODB_URI: mongodb://mongo:27017/movie_db
+    depends_on:
+      - mongo
+    ports:
+      - "8081:8081"
+
+  frontend:
+    build:
+      context: ./frontend
+    container_name: lab-tasks-frontend
+    restart: unless-stopped
+    depends_on:
+      - backend
+    ports:
+      - "4201:4200"
+
+volumes:
+  lab_tasks_mongo_data:

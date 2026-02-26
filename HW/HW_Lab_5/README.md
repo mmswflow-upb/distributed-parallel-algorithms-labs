@@ -1,10 +1,29 @@
-# DS Lab 5 — MPI (C)
+# HW — Homework (MPI, C)
 
-This repository contains solutions for **Lab Exercises** and **Homework** from *DS Lab5 (MPI)*.
+Homework tasks are from page **15** of the lab slides.
 
-- `LAB/` — solutions for Exercises 1–3
-- `HW/` — solutions for Homework 1–2
+## Build
 
-Each folder has its own `README.md` with build/run examples.
+```bash
+make
+```
 
-> Notes: Programs are written in **C** using **MPI** and compiled with `mpicc`, then executed with `mpirun` (as shown in the lab slides).
+Outputs are placed in `bin/`.
+
+## Run
+
+### HW1 — Split the array into 2 arrays, compute sums in parallel, return final sum and processing time on a 3rd process
+
+Requires **3 processes**:
+
+```bash
+mpirun -np 3 ./bin/hw1_sum_time_third
+```
+
+### HW2 — Matrix multiplication
+
+This implementation parallelizes by rows and works with **2 processes**:
+
+```bash
+mpirun -np 2 ./bin/hw2_matrix_mul
+```

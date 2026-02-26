@@ -1,0 +1,36 @@
+services:
+  mongo:
+    image: mongo:6
+    container_name: lab2-mongo
+    restart: unless-stopped
+    environment:
+      MONGO_INITDB_DATABASE: authentication_db
+    ports:
+      - "27019:27017"
+    volumes:
+      - lab2_mongo_data:/data/db
+
+  backend:
+    build:
+      context: ./SpringAuthentication
+    container_name: lab2-backend
+    restart: unless-stopped
+    environment:
+      MONGODB_URI: mongodb://mongo:27017/authentication_db
+    depends_on:
+      - mongo
+    ports:
+      - "8081:8081"
+
+  frontend:
+    build:
+      context: ./AngularAuthetication
+    container_name: lab2-frontend
+    restart: unless-stopped
+    depends_on:
+      - backend
+    ports:
+      - "4200:4200"
+
+volumes:
+  lab2_mongo_data:

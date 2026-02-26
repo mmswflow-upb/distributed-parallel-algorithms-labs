@@ -2,7 +2,7 @@
 
 Full stack:
 - Spring Boot backend: `backend` (port `8081`)
-- Angular frontend: `frontend` (port `4201`)
+- Angular frontend: `frontend` (port `4200`)
 - MongoDB: `movie_db` (host port `27018` -> container `27017`)
 
 ## Quick Start (No local dependency install)
@@ -13,7 +13,7 @@ docker compose up --build
 ```
 
 Open:
-- Frontend: `http://localhost:4201`
+- Frontend: `http://localhost:4200`
 - Backend API: `http://localhost:8081/api/movies`
 - MongoDB host port: `27018`
 

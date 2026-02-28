@@ -1,0 +1,11 @@
+disease,emergency_temp_min,emergency_temp_max,emergency_humidity_min,emergency_humidity_max,emergency_illum_min,emergency_illum_max,emergency_noise_min,emergency_noise_max,warning_temp_min,warning_temp_max,warning_humidity_min,warning_humidity_max,warning_illum_min,warning_illum_max,warning_noise_min,warning_noise_max,normal_temp_min,normal_temp_max,normal_humidity_min,normal_humidity_max,normal_illum_min,normal_illum_max,normal_noise_min,normal_noise_max,below_normal_temp_min,below_normal_temp_max,below_normal_humidity_min,below_normal_humidity_max,below_normal_illum_min,below_normal_illum_max,below_normal_noise_min,below_normal_noise_max
+Heatstroke,38,,,,,,75,,35,40,,,,,65,75,30,35,,,,,55,65,28,30,,,,,50,55
+Hypothermia,,0,,,,,70,,0,5,,,,,60,70,5,10,,,,,55,60,10,15,,,,,50,55
+Migraine,,,,,,,85,,,,,,,,75,85,,,,,,,65,75,,,,,,,55,65
+Dehydration,36,,,20,,,,,33,36,,30,,,,,30,33,,40,,,,,28,30,,50,,,,
+Asthma Attack,,,,,,,90,,,,,,,,80,90,,,,,,,70,80,,,,,,,60,70
+Allergic Rhinitis,,,70,,,,,,,,60,70,,,,,,,50,60,,,,,,,40,50,,,,
+Insomnia,,,,,,50,150,70,,,,,,150,250,60,70,,,,,250,400,50,60,,,,,400,600,40,50
+Hearing Stress,,,,,,,95,,,,,,,,85,95,,,,,,,75,85,,,,,,,65,75
+Dry Skin,,,,20,,,,,,,,30,,,,,,,,40,,,,,,,,50,,,,
+Seasonal Flu Risk,,,60,,,,,,,,50,60,,,,,,,40,50,,,,,,,30,40,,,,

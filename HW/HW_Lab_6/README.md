@@ -57,13 +57,17 @@ to text-only fallback mode automatically.
 Run steps
 ---------
 1) Open a terminal in THIS folder (Homework).
-2) Install dependencies (recommended):
+2) Activate your conda environment (recommended):
+
+   conda env_name
+
+3) Install dependencies if not already installed:
 
    pip install -r requirements_voice.txt
 
-3) Run:
+4) Run:
 
-   python voice_bot.py --csv data/diseases_rules.csv
+   python3 voice_bot.py --csv data/diseases_rules.csv
 
 How to use it
 -------------
@@ -78,6 +82,22 @@ Common issues
 -------------
 - Microphone not detected:
   Check OS microphone permissions or run the fallback text-only mode.
+
 - “SpeechRecognition not installed”:
   Run:
     pip install -r requirements_voice.txt
+
+- “Invalid sample rate” / audio capture fails on Linux (ALSA):
+  This happens when the default ALSA device does not support 16000 Hz.
+  The bot is configured to prefer the hw:0,7 sub-device which natively
+  runs at 16000 Hz on most sof-hda-dsp systems (e.g. modern Intel laptops).
+  If it still fails, list your devices to find the right one:
+
+    python3 -c “import speech_recognition as sr; [print(i, n) for i, n in enumerate(sr.Microphone.list_microphone_names())]”
+
+  Then update the choose_device_index() call in voice_bot.py with the
+  name or substring of the correct device.
+
+- ALSA warnings printed to the terminal (e.g. “Unknown PCM pipewire”):
+  These are harmless. They appear because conda's ALSA layer cannot load
+  PipeWire plugins. The bot still works correctly.

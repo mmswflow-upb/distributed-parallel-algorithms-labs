@@ -140,6 +140,7 @@ def main():
             values.append(number)
         except Exception as e:
             print(f"Error: {e}")
+            print(f"Could not understand. Using default {default}.")
             speak(engine, f"Could not understand. Using default {default}.")
             values.append(default)
 

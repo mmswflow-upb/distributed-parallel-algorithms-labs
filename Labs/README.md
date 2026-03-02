@@ -81,12 +81,17 @@ Change the implementation of HW of lab 5 in such a way that it still keeps these
 
 ### Lab 6
 
+Change the implementation of Lab_Tasks in such a way that it still keeps these functionalities, but make sure you change the code and output:
 
+- Implement model classes (from slides)
+
+- Enviromental factors affect persons according to the illnesses which they have. Think of 10 diseases and the parameters which influence them, per category (emergency, warning, normal, below normal). Code the reasoning rules. Test the rules.
+
+- Read the 10 diseases and the parameters which influence them, per category (emergency, warning, normal, below normal) from a CSV file. Create an interaction scenario between the user and the program, like in the case of bots.
 
 ### HW Lab 6
 
-
-Change the implementation of HW of lab 6 in such a way that it still keeps these functionalities, but make sure you change the code and output: 
+Change the implementation of HW of lab 6 in such a way that it still keeps these functionalities, but make sure you change the code and output:
 
 - Include a speech to text and text to speech functionality for the lab bot program.
 

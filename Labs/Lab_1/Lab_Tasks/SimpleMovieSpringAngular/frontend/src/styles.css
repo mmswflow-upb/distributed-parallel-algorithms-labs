@@ -1,16 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Inter:wght@400;500;600&display=swap');
+
 :root {
-  --bg: #f2f5fb;
-  --surface: #ffffff;
-  --surface-soft: #f8faff;
-  --text: #1f2a44;
-  --muted: #63718c;
-  --line: #d6deef;
-  --primary: #0f4c81;
-  --primary-strong: #0a3a63;
-  --success: #147d64;
-  --danger: #b42318;
-  --warning: #f59e0b;
-  --shadow: 0 12px 30px rgba(28, 43, 76, 0.08);
+  --bg: #0a0a0f;
+  --surface: #12121a;
+  --surface-soft: #1a1a26;
+  --surface-elevated: #1f1f2e;
+  --text: #e8e0d4;
+  --muted: #8a8099;
+  --line: #2a2a3d;
+  --primary: #c9a227;
+  --primary-strong: #a8841e;
+  --primary-glow: rgba(201, 162, 39, 0.18);
+  --accent: #9b1c2e;
+  --accent-strong: #7a1523;
+  --success: #2a7d5f;
+  --danger: #9b1c2e;
+  --warning: #c9a227;
+  --shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+  --shadow-gold: 0 4px 24px rgba(201, 162, 39, 0.15);
 }
 
 * {
@@ -20,16 +27,45 @@
 html,
 body {
   margin: 0;
+  padding: 0;
   min-height: 100%;
+  background-color: var(--bg);
 }
 
 body {
-  font-family: "Segoe UI", "Noto Sans", Arial, sans-serif;
+  font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
   color: var(--text);
-  background: linear-gradient(145deg, #f6f9ff, #eef3fb);
+  background: var(--bg);
+  background-image:
+    radial-gradient(ellipse at 20% 10%, rgba(155, 28, 46, 0.07) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 90%, rgba(201, 162, 39, 0.06) 0%, transparent 50%);
+  min-height: 100vh;
 }
 
 button,
-input {
+input,
+select,
+textarea {
   font: inherit;
+  color: inherit;
+  background: transparent;
+}
+
+button {
+  background: none;
+  border: none;
+}
+
+a {
+  color: inherit;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: 'Cinzel', serif;
+  letter-spacing: 0.5px;
+  color: var(--text);
+  margin-top: 0;
 }
